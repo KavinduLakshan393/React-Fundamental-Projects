@@ -29,10 +29,25 @@ function App(){
   useEffect(() => {fetchTours();}, []);
 
   if(loading){
-    return <main>
+    return (<main>
       <Loading />
-    </main>
+    </main>)
   }
+
+if(tours.length === 0){
+  return (
+      <div className="title">
+        <h2>No tours left</h2>
+        <button type="button" style="{{marginTop : '2rem'}}" className="btn" onClick={() => fetchTours()}>
+          Refresh
+        </button>
+
+
+      </div>
+  )
+}
+
+if(tours)
 
   return <main><Tours tours={tours} removeTour = {removeTour} /></main>
 }
