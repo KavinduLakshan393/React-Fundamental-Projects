@@ -38,7 +38,7 @@ if(tours.length === 0){
   return (
       <div className="title">
         <h2>No tours left</h2>
-        <button type="button" style="{{marginTop : '2rem'}}" className="btn" onClick={() => fetchTours()}>
+        <button type="button" style={{ marginTop: '2rem' }} className="btn" onClick={() => fetchTours()}>
           Refresh
         </button>
 
