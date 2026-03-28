@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import people from './data';
-
+import { Fabeer } from 'react-icons/fa';
 
 const App = () => {
   const [index, setIndex] = useState(0);
@@ -9,9 +9,10 @@ const App = () => {
 console.log(name);
 
   return(
-    <h2>
-      Reviews Starter
-    </h2>
+    <div>
+      <h2>Reviews Starter</h2>;
+      <Fabeer class></Fabeer>
+    </div>
   )
 }
 
