@@ -18,18 +18,16 @@ const checkNumber = (number) => {
 
 console.log(name);
 
-
-
 const prevPerson = () => {
   setIndex((currentIndex) => {
-    const newIndex = (currentIndex - 1 + people.length) % people.length;
+    const newIndex = currentIndex - 1;
     return checkNumber(newIndex);
   })
 };
 
 const nextPerson = () => {
     setIndex((currentIndex) => {
-    const newIndex = (currentIndex + 1) % people.length;
+    const newIndex = currentIndex + 1;
     return checkNumber(newIndex);
   })
 };
@@ -40,7 +38,6 @@ const randomPerson = () => {
   if(randomNumber === index){
     randomNumner = index + 1
   }
-  const newIndex = randomNumber % people.length;
   setIndex(checkNumber(randomNumber))
 }
 
