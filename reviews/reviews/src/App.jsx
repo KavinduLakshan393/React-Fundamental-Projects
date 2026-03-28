@@ -32,6 +32,15 @@ const nextPerson = () => {
   })
 };
 
+const randomPerson = () => {
+  let randomNumber = Math.floor(Math.random() * people.length)
+  console.log(randomNumber)
+  if(randomNumber === index){
+    randomNumner = index + 1
+  }
+  setIndex(checkNumber(randomNumber))
+}
+
 
   return(
     <main>
@@ -53,6 +62,9 @@ const nextPerson = () => {
                 <FaChevronCircleRight />
               </button>
             </div>
+            <button className='btn btn-hipster' onClick={randomPerson}>
+              Suprise Me
+            </button>
           </article>
     </main>
   )
