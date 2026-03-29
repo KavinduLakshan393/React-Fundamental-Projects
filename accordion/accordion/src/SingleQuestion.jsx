@@ -11,7 +11,13 @@ const SingleQuestion = ({title, info}) => {
                     {showInfo ? <AiOutlineMinus /> : <AiOutlinePlus />}
                 </button>
             </header>
-            {showInfo && <p>{info}</p>}
+            <div className={`answer-container ${showInfo ? 'show' : ''}`}>
+              <div className="answer-content">
+                <p>{info}</p>
+              </div>
+            </div>
         </article>
     )
 }
+
+export default SingleQuestion;

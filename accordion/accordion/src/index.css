@@ -274,6 +274,18 @@ main {
   padding: 2.5rem;
   max-width: 800px;
   box-shadow: var(--shadow-3);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .container h1 {
   text-align: center;
@@ -287,6 +299,12 @@ main {
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-3);
   margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.question:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-4);
 }
 
 .question p {
@@ -320,4 +338,23 @@ main {
   /* optional - last item */
   align-self: flex-start;
   min-width: 2rem;
+}
+
+/* --- Accordion Open/Close Animation --- */
+.answer-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.4s ease-in-out, opacity 0.2s ease-in;
+}
+
+.answer-container.show {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  /* Add a delay to the opacity so it fades in after the slide starts */
+  transition: grid-template-rows 0.4s ease-in-out, opacity 0.4s ease-in 0.2s;
+}
+
+.answer-content {
+  overflow: hidden;
 }
