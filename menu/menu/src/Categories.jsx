@@ -1,3 +1,5 @@
+import React from "react"
+
 const Categories = ({categories, filterItems}) => {
     return(
         <div className="btn-container">
@@ -8,6 +10,7 @@ const Categories = ({categories, filterItems}) => {
                         className="btn"
                         key={category}
                         onClick={() => filterItems(category)}>
+                            {category}
                     </button>
                 )
             })}
