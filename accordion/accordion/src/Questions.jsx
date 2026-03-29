@@ -1,3 +1,8 @@
+import React from "react";
+import SingleQuestion from "./SingleQuestion";
+
+
+
 const Questions = ({questions}) => {
     return(
         <section className="container">
