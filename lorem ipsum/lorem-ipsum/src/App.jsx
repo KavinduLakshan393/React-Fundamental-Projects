@@ -1,41 +1,26 @@
+import ColorList from './ColorList';
+import Form from './Form';
+import Values from 'values.js';
 import { useState } from 'react';
-import data from './data';
-import { nanoid } from 'nanoid';
-
+import { ToastContainer, toast } from 'react-toastify';
 const App = () => {
-  const [count, setCount] = useState(1);
-  const [text, setText] = useState([]);
+  const [colors, setColors] = useState(new Values('#f15025').all(10));
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let amount = parseInt(count);
-    setText(data.slice(0, amount));
+  const addColor = (color) => {
+    try {
+      const newColors = new Values(color).all(10);
+      setColors(newColors);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
+
   return (
-    <section className='section-center'>
-      <h4>tired of boring lorem ipsum?</h4>
-      <form className='lorem-form' onSubmit={handleSubmit}>
-        <label htmlFor='amount'>paragraphs:</label>
-        <input
-          type='number'
-          name='amount'
-          id='amount'
-          min='1'
-          step='1'
-          max='8'
-          value={count}
-          onChange={(e) => setCount(e.target.value)}
-        />
-        <button className='btn' type='submit'>
-          generate
-        </button>
-      </form>
-      <article className='lorem-text'>
-        {text.map((item) => {
-          return <p key={nanoid()}>{item}</p>;
-        })}
-      </article>
-    </section>
+    <main>
+      <Form addColor={addColor} />
+      <ColorList colors={colors} />
+      <ToastContainer position='top-center' />
+    </main>
   );
 };
 export default App;
